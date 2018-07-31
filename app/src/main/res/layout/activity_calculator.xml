@@ -7,16 +7,32 @@
     android:layout_height="match_parent"
     android:background="@color/light_blue"
     tools:context=".Calculator">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:id="@+id/TopBar">
 
+    <EditText
+        android:id="@+id/DateEditText"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/calcuButBac"
+        android:textColor="@color/white"
+        android:hint="@string/EditTextDate"
+        android:inputType="date" />
+    </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/TopBar"
+        android:layout_above="@id/bottomCalLayout">
     <ListView
         android:id="@+id/calcutorListView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_above="@id/bottomCalLayout"/>
+        android:layout_height="match_parent"/>
 
+    </LinearLayout>
     <LinearLayout
         android:id="@+id/bottomCalLayout"
         android:layout_width="match_parent"

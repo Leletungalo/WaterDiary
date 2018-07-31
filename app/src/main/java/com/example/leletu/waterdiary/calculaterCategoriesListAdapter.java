@@ -31,7 +31,7 @@ public class calculaterCategoriesListAdapter extends ArrayAdapter<Categories> {
         convertView = inflater.inflate(resource,parent,false);
 
         TextView NameView = convertView.findViewById(R.id.calcuTextView1);
-        EditText dateView = convertView.findViewById(R.id.calcuEditTextView2);
+        TextView dateView = convertView.findViewById(R.id.calcuEditTextView2);
         EditText totalView = convertView.findViewById(R.id.calcuEditTextView3);
 
         NameView.setText(name);

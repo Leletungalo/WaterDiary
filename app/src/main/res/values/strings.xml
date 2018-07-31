@@ -3,7 +3,9 @@
     <string name="calculateButton">Calculate</string>
     <string name="tatalWaterUsage">Back</string>
     <string name="SaveAtCalcute">Save</string>
-    <string name="EditTextDate">Date</string>
+    <string name="EditTextDate">Enter Today Date</string>
     <string name="totalEstimate">Total</string>
+    <string name="totalWaterUsed">total water used</string>
+    <string name="DateNoteSeted">NO date yet</string>
 
 </resources>
