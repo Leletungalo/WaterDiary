@@ -35,7 +35,7 @@ public class calculaterCategoriesListAdapter extends ArrayAdapter<Categories> {
         EditText totalView = convertView.findViewById(R.id.calcuEditTextView3);
 
         NameView.setText(name);
-
+        System.out.print("ljiudgytr");
 
         return convertView;
     }
