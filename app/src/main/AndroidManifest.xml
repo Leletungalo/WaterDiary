@@ -16,7 +16,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Calculator"></activity>
+        <activity android:name=".Calculator" />
+        <activity android:name=".Shower"></activity>
+        <activity android:name=".Toilet"></activity>
+        <activity android:name=".Laundry"></activity>
+        <activity android:name=".Cooking"></activity>
+        <activity android:name=".Dishes"></activity>
+        <activity android:name=".Drinking"></activity>
+        <activity android:name=".Cleaning"></activity>
+        <activity android:name=".Hygene"></activity>
     </application>
 
 </manifest>

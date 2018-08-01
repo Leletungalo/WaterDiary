@@ -8,7 +8,10 @@
     android:background="@color/light_blue"
     tools:context=".MainActivity">
 
-
+    <LinearLayout
+        android:id="@+id/MainTopBar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
     <Button
         android:id="@+id/calcuteButton"
         android:background="@color/calcuButBac"
@@ -20,18 +23,24 @@
         android:textSize="32sp"
         android:layout_marginBottom="10dp"
         android:text="@string/calculateButton" />
+    </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/MainMidLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/MainTopBar"
+        android:layout_above="@+id/MainBottomLayout">
     <ListView
         android:id="@+id/myListView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/calcuteButton"
-        android:layout_marginTop="-10dp">
+        android:layout_height="match_parent">
 
     </ListView>
+    </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/MainBottomLayout"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_alignParentBottom="true"

@@ -42,8 +42,8 @@ public class calculaterCategoriesListAdapter extends ArrayAdapter<Categories> {
 
 
         holder.name = (TextView) convertView.findViewById(R.id.calcuTextView1);
-        holder.date = (TextView) convertView.findViewById(R.id.calcuEditTextView2);
-        holder.date = (EditText) convertView.findViewById(R.id.calcuEditTextView3);
+      //  holder.date = (TextView) convertView.findViewById(R.id.calcuEditTextView2);
+        holder.total = (EditText) convertView.findViewById(R.id.calcuEditTextView3);
 
         result = convertView;
         convertView.setTag(holder);
@@ -51,13 +51,7 @@ public class calculaterCategoriesListAdapter extends ArrayAdapter<Categories> {
             holder = (ViewHolder) convertView.getTag();
             result = convertView;
         }
-        /*
-        TextView NameView = convertView.findViewById(R.id.calcuTextView1);
-        TextView dateView = convertView.findViewById(R.id.calcuEditTextView2);
-        EditText totalView = convertView.findViewById(R.id.calcuEditTextView3);
-
-        NameView.setText(name);
-*/      holder.name.setText(categories.getName());
+        holder.name.setText(categories.getName());
         return convertView;
     }
 }

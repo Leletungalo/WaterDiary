@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -19,10 +20,57 @@ public class MainActivity extends AppCompatActivity {
         Calculator c = new Calculator();
         setContentView(R.layout.activity_main);
         ListView myListView = findViewById(R.id.myListView);
-
         makeList();
         CategoriesListAdapter adapter = new CategoriesListAdapter(this, R.layout.adapter_view_layout,categories2);
         myListView.setAdapter(adapter);
+
+        myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+              /*
+                if (position == 0){
+                  Toast.makeText(MainActivity.this,"Shower",Toast.LENGTH_SHORT).show();
+              }else if (position == 1){
+                  Toast.makeText(MainActivity.this,"toilet",Toast.LENGTH_SHORT).show();
+              }else if (position == 2){
+                  Toast.makeText(MainActivity.this,"laundry",Toast.LENGTH_SHORT).show();
+              }else if (position == 3)
+                  Toast.makeText(MainActivity.this,"cooking",Toast.LENGTH_SHORT).show();
+                */
+              switch (position){
+                  case 0:
+                      startActivity(new Intent(MainActivity.this,Shower.class));
+                      break;
+
+                  case 1:
+                      startActivity(new Intent(MainActivity.this,Toilet.class));
+                      break;
+
+                  case 2:
+                      startActivity(new Intent(MainActivity.this,Laundry.class));
+                      break;
+                  case 3:
+                      startActivity(new Intent(MainActivity.this,Cooking.class));
+                      break;
+
+                  case 4:
+                      startActivity(new Intent(MainActivity.this,Dishes.class));
+                      break;
+
+                  case 5:
+                      startActivity(new Intent(MainActivity.this,Drinking.class));
+                      break;
+
+                  case 6:
+                      startActivity(new Intent(MainActivity.this,Cleaning.class));
+                      break;
+
+                  case 7:
+                      startActivity(new Intent(MainActivity.this,Hygene.class));
+                      break;
+              }
+            }
+        });
     }
 
     public ArrayList makeList(){
@@ -34,7 +82,6 @@ public class MainActivity extends AppCompatActivity {
         Categories drinking = new Categories("drinking");
         Categories cleaning = new Categories("cleaning");
         Categories hygiene = new Categories("hygiene");
-        Categories calculater = new Categories("calculater");
 
         categories2 = new ArrayList<>();
 
@@ -46,7 +93,6 @@ public class MainActivity extends AppCompatActivity {
         categories2.add(drinking);
         categories2.add(cleaning);
         categories2.add(hygiene);
-        categories2.add(calculater);
 
         return categories2;
     }
