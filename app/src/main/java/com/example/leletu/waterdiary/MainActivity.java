@@ -14,29 +14,37 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     public ArrayList<Categories> categories2;
+    ListView myListView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Calculator c = new Calculator();
         setContentView(R.layout.activity_main);
-        ListView myListView = findViewById(R.id.myListView);
+        myListView = findViewById(R.id.myListView);
         makeList();
         CategoriesListAdapter adapter = new CategoriesListAdapter(this, R.layout.adapter_view_layout,categories2);
         myListView.setAdapter(adapter);
 
+        //try code start
+        //for (int i = 0; i < myListView.getAdapter().getCount();i++){
+        //    View view = myListView.getChildAt(i);
+        //    TextView nono = (TextView) findViewById(R.id.TextView1);
+        //    i++;
+        //    String nopx = nono.getText().toString();
+         //   Toast.makeText(MainActivity.this,nopx,Toast.LENGTH_SHORT).show();
+        //}
+        //tyy code end
+
         myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-              /*
-                if (position == 0){
-                  Toast.makeText(MainActivity.this,"Shower",Toast.LENGTH_SHORT).show();
-              }else if (position == 1){
-                  Toast.makeText(MainActivity.this,"toilet",Toast.LENGTH_SHORT).show();
-              }else if (position == 2){
-                  Toast.makeText(MainActivity.this,"laundry",Toast.LENGTH_SHORT).show();
-              }else if (position == 3)
-                  Toast.makeText(MainActivity.this,"cooking",Toast.LENGTH_SHORT).show();
+
+               /* View view1 = parent.getChildAt(position );
+                TextView text = (TextView)findViewById(R.id.TextView1);
+
+                Toast.makeText(MainActivity.this,text.getText().toString(),Toast.LENGTH_SHORT).show();
                 */
+
               switch (position){
                   case 0:
                       startActivity(new Intent(MainActivity.this,Shower.class));

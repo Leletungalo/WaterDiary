@@ -16,6 +16,7 @@ import java.util.ArrayList;
 class CategoriesListAdapter extends ArrayAdapter<Categories>{
     private Context context;
     int resource;
+    ArrayList list;
 
     static class ViewHolder {
         TextView name;
@@ -27,6 +28,7 @@ class CategoriesListAdapter extends ArrayAdapter<Categories>{
         super(context, resource, objects);
         this.context = context;
         this.resource = resource;
+        list = objects;
     }
     @NonNull
     @Override
@@ -47,6 +49,8 @@ class CategoriesListAdapter extends ArrayAdapter<Categories>{
            holder.date = (TextView) convertView.findViewById(R.id.TextView2);
            holder.total = (TextView) convertView.findViewById(R.id.TextView3);
 
+
+
            result = convertView;
            convertView.setTag(holder);
        }else {
@@ -61,5 +65,10 @@ class CategoriesListAdapter extends ArrayAdapter<Categories>{
         return convertView;
     }
 
+    public void testMethod(){}
 
+    @Override
+    public int getCount() {
+        return list.size();
+    }
 }

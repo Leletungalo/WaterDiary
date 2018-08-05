@@ -48,6 +48,7 @@
             android:layout_height="match_parent"
             android:background="@color/calcuButBac"
             android:layout_weight="33.3"
+            android:textColor="@color/white"
             android:text="@string/tatalWaterUsage"
             android:textSize="21sp" />
 
@@ -55,14 +56,18 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="33.3"
+            android:textColor="@color/white"
             android:text="Total"
             android:textSize="21sp" />
 
         <Button
+            android:id="@+id/saveAllData"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/calcuButBac"
+            android:onClick="saveDataFromCalculatorActivity"
             android:layout_weight="33.3"
+            android:textColor="@color/white"
             android:text="@string/SaveAtCalcute"
             android:textSize="21sp" />
     </LinearLayout>

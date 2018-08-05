@@ -11,25 +11,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="40"
+        android:textColor="@color/white"
         android:textSize="21sp"
         android:text="lelelethu"/>
 
-
-    <!--
-    <TextView
-        android:id="@+id/calcuEditTextView2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="33.3"
-        android:textSize="21sp"
-        android:hint="@string/DateNoteSeted"
-        />-->
 
     <EditText
         android:id="@+id/calcuEditTextView3"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="60"
+        android:textColor="@color/white"
         android:textSize="21sp"
         android:inputType="number"
         android:hint="@string/totalEstimate"/>

@@ -12,6 +12,7 @@
         android:layout_height="60dp"
         android:layout_weight="25"
         android:textSize="21sp"
+        android:textColor="@color/white"
         android:text="lelelethu"/>
 
 
@@ -21,6 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_weight="33.3"
+        android:textColor="@color/white"
         android:textSize="21sp"
         android:text="ooooo"
         />
@@ -30,6 +32,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_weight="33.3"
+        android:textColor="@color/white"
         android:textSize="21sp"
         android:text="Total"/>
 
