@@ -16,7 +16,6 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class calculaterCategoriesListAdapter extends ArrayAdapter<Categories> {
-    DataBaseHelper baseHelper;
     private Context context;
     private int resource;
     ViewHolder holder;
@@ -49,7 +48,6 @@ public class calculaterCategoriesListAdapter extends ArrayAdapter<Categories> {
 
 
         holder.name = (TextView) convertView.findViewById(R.id.calcuTextView1);
-      //  holder.date = (TextView) convertView.findViewById(R.id.calcuEditTextView2);
         holder.total = (EditText) convertView.findViewById(R.id.calcuEditTextView3);
 
         result = convertView;

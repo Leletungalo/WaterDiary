@@ -7,5 +7,6 @@
     <string name="totalEstimate">Total</string>
     <string name="totalWaterUsed">total water used</string>
     <string name="DateNoteSeted">NO date yet</string>
+    <string name="dishes">Dishes</string>
 
 </resources>

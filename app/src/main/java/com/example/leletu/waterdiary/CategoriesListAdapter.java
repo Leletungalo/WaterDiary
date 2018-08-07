@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-class CategoriesListAdapter extends ArrayAdapter<Categories>{
+class CategoriesListAdapter extends ArrayAdapter<EditModel>{
     private Context context;
     int resource;
     ArrayList list;
@@ -24,7 +24,7 @@ class CategoriesListAdapter extends ArrayAdapter<Categories>{
         TextView total;
     }
 
-    public CategoriesListAdapter(@NonNull Context context, int resource, @NonNull ArrayList<Categories> objects) {
+    public CategoriesListAdapter(@NonNull Context context, int resource, @NonNull ArrayList<EditModel> objects) {
         super(context, resource, objects);
         this.context = context;
         this.resource = resource;

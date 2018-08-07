@@ -13,12 +13,12 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    public ArrayList<Categories> categories2;
+    public ArrayList<EditModel> categories2;
     ListView myListView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Calculator c = new Calculator();
+        //Calculator c = new Calculator();
         setContentView(R.layout.activity_main);
         myListView = findViewById(R.id.myListView);
         makeList();
@@ -28,12 +28,6 @@ public class MainActivity extends AppCompatActivity {
         myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-               /* View view1 = parent.getChildAt(position );
-                TextView text = (TextView)findViewById(R.id.TextView1);
-
-                Toast.makeText(MainActivity.this,text.getText().toString(),Toast.LENGTH_SHORT).show();
-                */
 
               switch (position){
                   case 0:
@@ -71,15 +65,15 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public ArrayList makeList(){
-        Categories shower = new Categories("shower");
-        Categories toilet = new Categories("toilet");
-        Categories laundry = new Categories("laundry");
-        Categories cooking = new Categories("cooking");
-        Categories dishes = new Categories("dishes");
-        Categories drinking = new Categories("drinking");
-        Categories cleaning = new Categories("cleaning");
-        Categories hygiene = new Categories("hygiene");
+    public ArrayList<EditModel> makeList(){
+        EditModel shower = new EditModel("shower");
+        EditModel toilet = new EditModel("toilet");
+        EditModel laundry = new EditModel("laundry");
+        EditModel cooking = new EditModel("cooking");
+        EditModel dishes = new EditModel("dishes");
+        EditModel drinking = new EditModel("drinking");
+        EditModel cleaning = new EditModel("cleaning");
+        EditModel hygiene = new EditModel("hygiene");
 
         categories2 = new ArrayList<>();
 

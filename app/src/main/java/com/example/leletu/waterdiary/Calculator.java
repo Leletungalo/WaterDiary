@@ -1,7 +1,12 @@
 package com.example.leletu.waterdiary;
 
+import android.database.Cursor;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
@@ -12,8 +17,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class Calculator extends AppCompatActivity {
-   // public static DataBaseHelper baseHelper;
-   // calculaterCategoriesListAdapter listAdapter;
+    public static DataBaseHelper baseHelper;
     ListView calListView;
     private calcutorCostomAdapter costomAdapter;
     public ArrayList<EditModel> editModelArrayList;
@@ -22,40 +26,58 @@ public class Calculator extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculator);
         calListView = findViewById(R.id.calcutorListView);
-       // baseHelper = new DataBaseHelper(this);
-
-        editModelArrayList = populateList();
+        baseHelper = new DataBaseHelper(this);
         MainActivity main = new MainActivity();
 
-        //ArrayList nullNonsence = main.makeList();
-
+        editModelArrayList = main.makeList();
         costomAdapter = new calcutorCostomAdapter(this,editModelArrayList);
         calListView.setAdapter(costomAdapter);
-
-        /*
-        calculaterCategoriesListAdapter adapter = new calculaterCategoriesListAdapter(this, R.layout.calculater_adapter_view_layout,nullNonsence);
-        calListView.setAdapter(adapter);
-*/
-    }
-
-    private ArrayList<EditModel> populateList() {
-        ArrayList<EditModel> list2 = new ArrayList<>();
-
-        for (int i = 0 ; i < 8; i++){
-            EditModel model = new EditModel();
-            //model.setEditTextValue(String.valueOf(i));
-            list2.add(model);
-        }
-
-        return list2;
     }
 
     public void saveDataFromCalculatorActivity(View view){
+
+        final EditText date = findViewById(R.id.DateEditText);
+
         for (int i = 0 ; i < calcutorCostomAdapter.list.size(); i++){
-            String name = calcutorCostomAdapter.list.get(i).getEditTextValue();
-            Toast.makeText(Calculator.this,name,Toast.LENGTH_SHORT).show();
+            String total = calcutorCostomAdapter.list.get(i).getEditTextValue();
+            String name = editModelArrayList.get(i).getName();
+           // Log.d("full info",name + " "+date.getText() +" "+total);
+
+           boolean o = baseHelper.insertDate(name,date.getText().toString(),total);
+           if (o)
+               Toast.makeText(Calculator.this,"Data inserted",Toast.LENGTH_SHORT).show();
+           else
+               Toast.makeText(Calculator.this,"Data not inserted",Toast.LENGTH_SHORT).show();
+
         }
 
+    }
 
+    public void ViewAllData(View view){
+        Cursor res = baseHelper.getAllDate();
+
+        if (res.getCount() == 0){
+            showText("Error","Data not found");
+            return;
+        }
+
+        StringBuffer buffer = new StringBuffer();
+
+        while (res.moveToNext()){
+            buffer.append("ID: " + res.getString(0)+"\n");
+            buffer.append("Name : " + res.getString(1)+"\n");
+            buffer.append("Surname : " + res.getString(2)+"\n");
+            buffer.append("Mark : " + res.getString(3)+"\n\n");
+        }
+        showText("lelethu dialog",buffer.toString());
+
+    }
+
+    public void showText(String title, String messege){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(true);
+        builder.setTitle(title);
+        builder.setMessage(messege);
+        builder.show();
     }
 }

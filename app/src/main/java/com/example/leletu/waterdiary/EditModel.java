@@ -12,7 +12,7 @@ public class EditModel {
 
     public EditModel(String name){
         this.name = name;
-        this.date = "0";
+        this.date = "DD/MM/YYYY";
         this.total = 0;
     }
 

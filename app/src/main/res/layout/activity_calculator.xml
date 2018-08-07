@@ -48,6 +48,7 @@
             android:layout_height="match_parent"
             android:background="@color/calcuButBac"
             android:layout_weight="33.3"
+            android:onClick="ViewAllData"
             android:textColor="@color/white"
             android:text="@string/tatalWaterUsage"
             android:textSize="21sp" />

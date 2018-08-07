@@ -16,18 +16,14 @@ import java.util.ArrayList;
 public class calcutorCostomAdapter extends BaseAdapter {
     private Context context;
     public static ArrayList<EditModel> list;
-   // public ArrayList arrayList;
 
     public calcutorCostomAdapter(Context context, ArrayList<EditModel> list) {
         this.context = context;
         this.list = list;
-        //this.arrayList = arrayList;
-
     }
 
     static class ViewHolder {
        TextView name;
-       // TextView date;
         EditText total;
         Button saveAll;
     }
@@ -60,14 +56,13 @@ public class calcutorCostomAdapter extends BaseAdapter {
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
          final ViewHolder holder;
-
          if (convertView == null){
              holder = new ViewHolder();
              LayoutInflater inflater = (LayoutInflater) context
                      .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
              convertView = inflater.inflate(R.layout.calculater_adapter_view_layout,null,true);
 
-
+             holder.name = (TextView) convertView.findViewById(R.id.calcuTextView1);
              holder.total = (EditText) convertView.findViewById(R.id.calcuEditTextView3);
 
              convertView.setTag(holder);
@@ -92,7 +87,7 @@ public class calcutorCostomAdapter extends BaseAdapter {
 
              }
          });
-
+        holder.name.setText(list.get(position).getName());
 
         return convertView;
     }
