@@ -11,7 +11,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public static final String DATEBASE_NAME = "WaterDiary.db";
     public static final String TABLE_NAME = "Categories";
     public static final String Cal_1 = "NAME";
-    public static final String Cal_2 = "SURNAME";
+    public static final String Cal_2 = "Date";
     public static final String Cal_3 = "MARKS";
 
     public DataBaseHelper(Context context) {
@@ -21,7 +21,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table Student (NAME text PRIMARY KEY , MARKS integer)");
+        db.execSQL("create table Categories (NAME text PRIMARY KEY , MARKS integer)");
 
     }
 
@@ -31,11 +31,11 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean insertDate(String name/*, String surname*/, String marks){
+    public boolean insertDate(String name, String Date, String marks){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(Cal_1,name);
-        //values.put(Cal_2,surname);
+        values.put(Cal_2,Date);
         values.put(Cal_3,marks);
 
         long result = db.insert(TABLE_NAME,null,values);

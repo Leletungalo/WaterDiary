@@ -25,16 +25,6 @@ public class MainActivity extends AppCompatActivity {
         CategoriesListAdapter adapter = new CategoriesListAdapter(this, R.layout.adapter_view_layout,categories2);
         myListView.setAdapter(adapter);
 
-        //try code start
-        //for (int i = 0; i < myListView.getAdapter().getCount();i++){
-        //    View view = myListView.getChildAt(i);
-        //    TextView nono = (TextView) findViewById(R.id.TextView1);
-        //    i++;
-        //    String nopx = nono.getText().toString();
-         //   Toast.makeText(MainActivity.this,nopx,Toast.LENGTH_SHORT).show();
-        //}
-        //tyy code end
-
         myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
