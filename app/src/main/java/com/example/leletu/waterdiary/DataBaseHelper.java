@@ -10,7 +10,6 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     public static final String DATEBASE_NAME = "WaterDiary.db";
     public static final String TABLE_NAME = "Categories";
-    public static final String cal_0 = "ID";
     public static final String Cal_1 = "NAME";
     public static final String Cal_2 = "Date";
     public static final String Cal_3 = "MARKS";
@@ -22,7 +21,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table Categories (id integer primary key AUTOINCREMENT, NAME text ,Date integer, MARKS integer)");
+        db.execSQL("create table Categories (id integer primary key AUTOINCREMENT, NAME text ,Date integer not null, MARKS integer)");
 
     }
 
@@ -35,7 +34,6 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public boolean insertDate(String name, String Date, String marks){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        //values.put(cal_0,id);
         values.put(Cal_1,name);
         values.put(Cal_2,Date);
         values.put(Cal_3,marks);
@@ -50,7 +48,11 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     public Cursor getAllDate(){
         SQLiteDatabase db = getWritableDatabase();
-        Cursor res = db.rawQuery("select * from " + TABLE_NAME,null);
-        return res;
+        return db.rawQuery("select * from " + TABLE_NAME,null);
+    }
+
+    public Cursor makeQuiry(String query){
+        SQLiteDatabase db = getWritableDatabase();
+        return db.rawQuery(query,null);
     }
 }

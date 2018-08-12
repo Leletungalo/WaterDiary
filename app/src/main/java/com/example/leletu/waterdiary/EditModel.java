@@ -10,6 +10,12 @@ public class EditModel {
 
     public EditModel(){}
 
+    public EditModel(String name,String date, int total){
+        this.name = name;
+        this.date = date;
+        this.total = total;
+    }
+
     public EditModel(String name){
         this.name = name;
         this.date = "DD/MM/YYYY";

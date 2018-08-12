@@ -1,5 +1,6 @@
 package com.example.leletu.waterdiary;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -19,7 +20,6 @@ import java.util.ArrayList;
 public class Calculator extends AppCompatActivity {
     public static DataBaseHelper baseHelper;
     ListView calListView;
-    private calcutorCostomAdapter costomAdapter;
     public ArrayList<EditModel> editModelArrayList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,26 +30,28 @@ public class Calculator extends AppCompatActivity {
         MainActivity main = new MainActivity();
 
         editModelArrayList = main.makeList();
-        costomAdapter = new calcutorCostomAdapter(this,editModelArrayList);
+        calcutorCostomAdapter costomAdapter = new calcutorCostomAdapter(this, editModelArrayList);
         calListView.setAdapter(costomAdapter);
     }
 
     public void saveDataFromCalculatorActivity(View view){
 
         final EditText date = findViewById(R.id.DateEditText);
-
+        String zz = "";
         for (int i = 0 ; i < calcutorCostomAdapter.list.size(); i++){
             String total = calcutorCostomAdapter.list.get(i).getEditTextValue();
             String name = editModelArrayList.get(i).getName();
-           // Log.d("full info",name + " "+date.getText() +" "+total);
-
-           boolean o = baseHelper.insertDate(name,date.getText().toString(),total);
+            zz = date.getText().toString();
+           boolean o = baseHelper.insertDate(name,zz,total);
            if (o)
                Toast.makeText(Calculator.this,"Data inserted",Toast.LENGTH_SHORT).show();
            else
                Toast.makeText(Calculator.this,"Data not inserted",Toast.LENGTH_SHORT).show();
 
         }
+        Intent intent = new Intent(Calculator.this,MainActivity.class);
+        intent.putExtra("user",zz);
+        startActivity(intent);
 
     }
 
@@ -70,7 +72,6 @@ public class Calculator extends AppCompatActivity {
             buffer.append("Mark : " + res.getString(3)+"\n\n");
         }
         showText("lelethu dialog",buffer.toString());
-
     }
 
     public void showText(String title, String messege){

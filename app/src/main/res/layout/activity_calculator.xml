@@ -5,7 +5,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/light_blue"
     tools:context=".Calculator">
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,8 +15,6 @@
         android:id="@+id/DateEditText"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="@color/calcuButBac"
-        android:textColor="@color/white"
         android:hint="@string/EditTextDate"
         android:inputType="date" />
     </LinearLayout>
@@ -39,25 +36,22 @@
         android:layout_height="60dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:background="@color/calcuButBac"
         android:orientation="horizontal"
         android:weightSum="100">
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/calcuButBac"
             android:layout_weight="33.3"
             android:onClick="ViewAllData"
-            android:textColor="@color/white"
             android:text="@string/tatalWaterUsage"
             android:textSize="21sp" />
 
         <TextView
+            android:id="@+id/runningTotal"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="33.3"
-            android:textColor="@color/white"
             android:text="Total"
             android:textSize="21sp" />
 
@@ -65,10 +59,8 @@
             android:id="@+id/saveAllData"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/calcuButBac"
             android:onClick="saveDataFromCalculatorActivity"
             android:layout_weight="33.3"
-            android:textColor="@color/white"
             android:text="@string/SaveAtCalcute"
             android:textSize="21sp" />
     </LinearLayout>

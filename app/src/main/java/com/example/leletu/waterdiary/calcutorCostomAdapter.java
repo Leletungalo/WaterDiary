@@ -25,7 +25,7 @@ public class calcutorCostomAdapter extends BaseAdapter {
     static class ViewHolder {
        TextView name;
         EditText total;
-        Button saveAll;
+        TextView runningTotal;
     }
 
     @Override
@@ -63,6 +63,7 @@ public class calcutorCostomAdapter extends BaseAdapter {
              convertView = inflater.inflate(R.layout.calculater_adapter_view_layout,null,true);
 
              holder.name = (TextView) convertView.findViewById(R.id.calcuTextView1);
+             holder.runningTotal = (TextView) convertView.findViewById(R.id.runningTotal);
              holder.total = (EditText) convertView.findViewById(R.id.calcuEditTextView3);
 
              convertView.setTag(holder);
@@ -79,7 +80,8 @@ public class calcutorCostomAdapter extends BaseAdapter {
 
              @Override
              public void onTextChanged(CharSequence s, int start, int before, int count) {
-                list.get(position).setEditTextValue(holder.total.getText().toString());
+                 String ooo = holder.total.getText().toString();
+                list.get(position).setEditTextValue(ooo);
              }
 
              @Override

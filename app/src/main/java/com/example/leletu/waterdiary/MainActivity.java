@@ -1,27 +1,29 @@
 package com.example.leletu.waterdiary;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+    public DataBaseHelper baseHelper;
+    private String SetDate;
     public ArrayList<EditModel> categories2;
     ListView myListView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //Calculator c = new Calculator();
         setContentView(R.layout.activity_main);
+         baseHelper = new DataBaseHelper(this);
         myListView = findViewById(R.id.myListView);
-        makeList();
+        SetDate = "No date";
+        makeList2();
         CategoriesListAdapter adapter = new CategoriesListAdapter(this, R.layout.adapter_view_layout,categories2);
         myListView.setAdapter(adapter);
 
@@ -66,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public ArrayList<EditModel> makeList(){
+
         EditModel shower = new EditModel("shower");
         EditModel toilet = new EditModel("toilet");
         EditModel laundry = new EditModel("laundry");
@@ -88,6 +91,52 @@ public class MainActivity extends AppCompatActivity {
 
         return categories2;
     }
+
+    public void makeList2(){
+
+        try{
+        String zzz = getIntent().getExtras().getString("user");
+        SetDate = zzz;
+        Cursor cursor = baseHelper.makeQuiry("select NAME,Date,MARKS FROM Categories WHERE Date ='"+SetDate+"' ");
+        ArrayList<EditModel> www = new ArrayList<>();
+        if (cursor.getCount() == 0){
+                Toast.makeText(MainActivity.this,"No data 1",Toast.LENGTH_SHORT).show();
+                makeList();
+        }else {
+            while (cursor.moveToNext()){
+                    String nam = cursor.getString(0);
+
+                    String date = cursor.getString(1);
+                    int total = cursor.getInt(2);
+                    EditModel model = new EditModel(nam,date,total);
+
+                    www.add(model);
+                }
+                categories2 = www;
+            }
+        }catch (NullPointerException e) {
+
+            if (SetDate.equals("No date")) {
+                Cursor cursor = baseHelper.makeQuiry("select NAME,Date,MARKS FROM Categories WHERE Date ='" + SetDate + "' ");
+                ArrayList<EditModel> www = new ArrayList<>();
+                if (cursor.getCount() == 0) {
+                    makeList();
+                } else {
+                    while (cursor.moveToNext()) {
+                        String nam = cursor.getString(0);
+
+                        String date = cursor.getString(1);
+                        int total = cursor.getInt(2);
+                        EditModel model = new EditModel(nam, date, total);
+                        www.add(model);
+                    }
+                    categories2 = www;
+                }
+            }else
+                makeList();
+        }
+    }
+
 
     public void calculateButton(View view){
         Intent intent = new Intent(MainActivity.this,Calculator.class);
