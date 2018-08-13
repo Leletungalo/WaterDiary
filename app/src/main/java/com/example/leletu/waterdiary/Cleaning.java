@@ -22,13 +22,6 @@ public class Cleaning extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cleaning);
         baseHelper = new DataBaseHelper(this);
-       /* try{
-            dateForDiary = getIntent().getExtras().getString("date");
-        totalForDiary = getIntent().getExtras().getInt("total");
-        }catch (NullPointerException e){
-            totalForDiary = 0;
-            dateForDiary = "No date";
-        }*/
         findDate();
         dataQuery(dateForDiary);
         DiaryTotal111(dateForDiary);
@@ -72,12 +65,8 @@ public class Cleaning extends AppCompatActivity {
 
         } else {
             while (cursor.moveToNext()) {
-                //String nam = cursor.getString(0);
-                // String date1 = cursor.getString(1);
                 int total = cursor.getInt(2);
                 totalForDiary += total;
-                // EditModel model = new EditModel(nam, date, total);
-                //www.add(model);
             }
 
         }

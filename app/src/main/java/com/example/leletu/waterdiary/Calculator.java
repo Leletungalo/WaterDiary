@@ -43,10 +43,6 @@ public class Calculator extends AppCompatActivity {
             String name = editModelArrayList.get(i).getName();
             zz = date.getText().toString();
            boolean o = baseHelper.insertDate(name,zz,total);
-          /* if (o)
-               Toast.makeText(Calculator.this,"Data inserted",Toast.LENGTH_SHORT).show();
-           else
-               Toast.makeText(Calculator.this,"Data not inserted",Toast.LENGTH_SHORT).show();*/
         }
         Intent intent = new Intent(Calculator.this,MainActivity.class);
         intent.putExtra("user",zz);

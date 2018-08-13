@@ -23,13 +23,6 @@ public class Dishes extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dishes);
         baseHelper = new DataBaseHelper(this);
-        /*try{
-            dateForDiary = getIntent().getExtras().getString("date");
-            totalForDiary = getIntent().getExtras().getInt("total");
-        }catch (NullPointerException e){
-            totalForDiary = 0;
-            dateForDiary = "No date";
-        }*/
         findDate();
         dataQuery(dateForDiary);
         DiaryTotal111(dateForDiary);
@@ -75,12 +68,8 @@ public class Dishes extends AppCompatActivity {
 
         } else {
             while (cursor.moveToNext()) {
-                //String nam = cursor.getString(0);
-                // String date1 = cursor.getString(1);
                 int total = cursor.getInt(2);
                 totalForDiary += total;
-                // EditModel model = new EditModel(nam, date, total);
-                //www.add(model);
             }
 
         }
@@ -93,7 +82,6 @@ public class Dishes extends AppCompatActivity {
         if (cursor.getCount() == 0) {
             totalForDiary = 0;
             DiaryToatal = "0";
-
         } else {
             while (cursor.moveToNext()) {
                 DiaryToatal = cursor.getString(0);
