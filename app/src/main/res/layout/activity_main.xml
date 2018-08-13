@@ -54,8 +54,10 @@
             android:textSize="21sp" />
 
         <TextView
+            android:id="@+id/totalForMain"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:textSize="30sp"
             android:layout_weight="60"/>
     </LinearLayout>
 </RelativeLayout>

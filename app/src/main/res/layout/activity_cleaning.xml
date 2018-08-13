@@ -49,8 +49,10 @@
             android:textSize="31sp" />
 
         <TextView
+            android:id="@+id/totalForCleaning"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textSize="31sp"
             android:layout_weight="60" />
     </LinearLayout>
 

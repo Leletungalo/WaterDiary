@@ -51,6 +51,11 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return db.rawQuery("select * from " + TABLE_NAME,null);
     }
 
+    public Cursor getTotal(){
+        SQLiteDatabase db = getWritableDatabase();
+        return db.rawQuery("select MARKS from "+TABLE_NAME,null);
+    }
+
     public Cursor makeQuiry(String query){
         SQLiteDatabase db = getWritableDatabase();
         return db.rawQuery(query,null);
