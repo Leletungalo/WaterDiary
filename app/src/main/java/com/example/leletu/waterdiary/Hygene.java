@@ -23,13 +23,6 @@ public class Hygene extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hygene);
         baseHelper = new DataBaseHelper(this);
-       /* try{
-            dateForDiary = getIntent().getExtras().getString("date");
-            totalForDiary = getIntent().getExtras().getInt("total");
-        }catch (NullPointerException e){
-            totalForDiary = 0;
-            dateForDiary = "No date";
-        }*/
         findDate();
         dataQuery(dateForDiary);
         DiaryTotal111(dateForDiary);
@@ -60,9 +53,9 @@ public class Hygene extends AppCompatActivity {
     }
 
     public void nextActivity(View view){
-        Intent intent = new Intent(Hygene.this,MainActivity.class);
+       /* Intent intent = new Intent(Hygene.this,MainActivity.class);
         intent.putExtra("dateForM",dateForDiary);
-        startActivity(intent);
+        startActivity(intent);*/
 
     }
     public  void dataQuery(String date) {

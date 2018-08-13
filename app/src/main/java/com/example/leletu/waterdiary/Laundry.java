@@ -23,13 +23,6 @@ public class Laundry extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_laundry);
         baseHelper = new DataBaseHelper(this);
-        /*try{
-            dateForDiary = getIntent().getExtras().getString("date");
-            totalForDiary = getIntent().getExtras().getInt("total");
-        }catch (NullPointerException e){
-            totalForDiary = 0;
-            dateForDiary = "No date";
-        }*/
 
         findDate();
         dataQuery(dateForDiary);

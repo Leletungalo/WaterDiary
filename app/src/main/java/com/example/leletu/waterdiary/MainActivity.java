@@ -26,16 +26,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.d("onCreate", "onCreate");
         baseHelper = new DataBaseHelper(this);
         myListView = findViewById(R.id.myListView);
         totalForMain = findViewById(R.id.totalForMain);
 
-        // SetDate = "No date";
         if (savedInstanceState != null) {
-           // SetDate = savedInstanceState.getString("setDate");
             count = savedInstanceState.getInt("count");
-//        Log.d("sett",SetDate);
         } else {
 
             count = 0;
@@ -51,21 +47,8 @@ public class MainActivity extends AppCompatActivity {
         Log.d("onStart", "onStart");
 
     }
-/*
-    @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-        Log.d("onRestoreInstanceState","onRestoreInstanceState");
-        SetDate = savedInstanceState.getString("setDate");
-
-            //SetDate = "No date";
-
-    }*/
-
     @Override
     protected void onSaveInstanceState(Bundle outState) {
-        Log.d("onSaveInstanceState", "onSaveInstanceState");
-        // Log.d("huy",SetDate);
         outState.putString("setDate", SetDate);
         outState.putInt("count", count);
         super.onSaveInstanceState(outState);
@@ -98,10 +81,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void makeList2(String setDate) {
-       // Cursor cursor
         if (setDate != null) {
             if (!setDate.equals("No date")) {
-                Toast.makeText(MainActivity.this, "IT ENTERS", Toast.LENGTH_SHORT).show();
                 Cursor cursor = baseHelper.makeQuiry("select NAME,Date,MARKS FROM Categories WHERE Date ='" + setDate + "' ");
                 ArrayList<EditModel> www = new ArrayList<>();
                 if (cursor.getCount() == 0) {
@@ -120,33 +101,8 @@ public class MainActivity extends AppCompatActivity {
             } else
                 makeList();
         }else {
-            Toast.makeText(MainActivity.this,"",Toast.LENGTH_SHORT).show();
         makeList();}
     }
-
-    //ArrayList<EditModel> www = new ArrayList<>();
-       /* try {
-        if (cursor.getCount() == 0){
-            Toast.makeText(MainActivity.this,"No data 1",Toast.LENGTH_SHORT).show();
-            makeList();
-        }else {
-            while (cursor.moveToNext()){
-                String nam = cursor.getString(0);
-
-                String date = cursor.getString(1);
-                int total = cursor.getInt(2);
-                EditModel model = new EditModel(nam,date,total);
-                count += total;
-                www.add(model);
-            }
-
-            categories2 = www;
-        }
-        }catch (NullPointerException d){
-            d.getStackTrace();
-        }*/
-
-
 
     public void calculateButton(View view){
         Intent intent = new Intent(MainActivity.this,Calculator.class);
@@ -166,21 +122,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        Log.d("onResume","onResume");
         String nuSrt;
-      /*  try{
-            nuSrt = getIntent().getExtras().getString("user");
-        }catch (NullPointerException e){
-            try{
-                nuSrt = getIntent().getExtras().getString("dateForMS");
-            }catch (NullPointerException d){
-                Toast.makeText(MainActivity.this,"Why Null",Toast.LENGTH_SHORT).show();
-                nuSrt = "No date";
-            }
-        }*/
-
         makeList2(SetDate);
-       // SetDate = nuSrt;
         CategoriesListAdapter adapter = new CategoriesListAdapter(this, R.layout.adapter_view_layout,categories2);
         myListView.setAdapter(adapter);
         totalForMain.setText(""+count+" L");
