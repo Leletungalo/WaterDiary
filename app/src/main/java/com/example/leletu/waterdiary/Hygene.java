@@ -53,9 +53,9 @@ public class Hygene extends AppCompatActivity {
     }
 
     public void nextActivity(View view){
-        Intent intent = new Intent(Hygene.this,MainActivity.class);
+       /* Intent intent = new Intent(Hygene.this,MainActivity.class);
         intent.putExtra("dateForM",dateForDiary);
-        startActivity(intent);
+        startActivity(intent);*/
 
     }
     public  void dataQuery(String date) {

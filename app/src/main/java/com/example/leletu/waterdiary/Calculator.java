@@ -51,7 +51,10 @@ public class Calculator extends AppCompatActivity {
     }
 
     public void ViewAllData(View view){
-        Cursor res = baseHelper.getAllDate();
+        Intent intent = new Intent(Calculator.this,MainActivity.class);
+        startActivity(intent);
+    }
+       /* Cursor res = baseHelper.getAllDate();
 
         if (res.getCount() == 0){
             showText("Error","Data not found");
@@ -75,5 +78,5 @@ public class Calculator extends AppCompatActivity {
         builder.setTitle(title);
         builder.setMessage(messege);
         builder.show();
-    }
+    }*/
 }
