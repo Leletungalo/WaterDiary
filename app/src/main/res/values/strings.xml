@@ -3,9 +3,9 @@
     <string name="calculateButton">Calculate</string>
     <string name="tatalWaterUsage">Back</string>
     <string name="SaveAtCalcute">Save</string>
-    <string name="EditTextDate">Enter Today Date</string>
-    <string name="totalEstimate">Total</string>
-    <string name="totalWaterUsed">total water used</string>
+    <string name="EditTextDate">Enter Today Date </string>
+    <string name="totalEstimate">Total </string>
+    <string name="totalWaterUsed">total water used </string>
     <string name="DateNoteSeted">NO date yet</string>
 
     <string name="Next">Next </string>
@@ -13,13 +13,13 @@
     <string name="home">Home</string>
 
     <!--Define Diary -->
-    <string name="shower">Shower Total</string>
-    <string name="cooking">Cooking Total</string>
-    <string name="toilet">Toilet Total</string>
-    <string name="dishes">Dishes Total</string>
-    <string name="laundry">Laundry Total</string>
-    <string name="hygene">Hygiene Total</string>
-    <string name="drinking">Drinking Total</string>
-    <string name="cleaning">Cleaning Total</string>
+    <string name="shower">Shower Total </string>
+    <string name="cooking">Cooking Total </string>
+    <string name="toilet">Toilet Total </string>
+    <string name="dishes">Dishes Total </string>
+    <string name="laundry">Laundry Total </string>
+    <string name="hygene">Hygiene Total </string>
+    <string name="drinking">Drinking Total </string>
+    <string name="cleaning">Cleaning Total </string>
 
 </resources>

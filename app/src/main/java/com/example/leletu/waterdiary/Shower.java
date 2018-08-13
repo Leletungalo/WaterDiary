@@ -41,7 +41,7 @@ public class Shower extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         shawerTotal.setText(" "+DiaryToatal + " L");
-        total.setText(""+totalForDiary+" L");
+        total.setText(" "+totalForDiary+" L");
     }
 
     public void backButton(View view) {
@@ -85,6 +85,8 @@ public class Shower extends AppCompatActivity {
         Cursor cursor = baseHelper.makeQuiry("select MARKS FROM Categories WHERE Date ='" + date + "' and NAME ='shower' ");
         ArrayList<EditModel> www = new ArrayList<>();
         if (cursor.getCount() == 0) {
+            totalForDiary = 0;
+            DiaryToatal = "0";
 
         } else {
             while (cursor.moveToNext()) {
@@ -94,11 +96,15 @@ public class Shower extends AppCompatActivity {
         }
     }
 
+
+
     public void findDate(){
 
         Cursor cursor = baseHelper.makeQuiry("select Date FROM Categories");
         ArrayList<EditModel> www = new ArrayList<>();
         if (cursor.getCount() == 0) {
+            totalForDiary = 0;
+            DiaryToatal = "0";
 
         } else {
             while (cursor.moveToNext()) {

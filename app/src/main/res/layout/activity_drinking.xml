@@ -25,9 +25,10 @@
             android:textSize="31sp" />
 
         <TextView
+            android:id="@+id/drinkingTotal"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textSize="21sp"
+            android:textSize="31sp"
             android:layout_weight="60" />
     </LinearLayout>
     <LinearLayout

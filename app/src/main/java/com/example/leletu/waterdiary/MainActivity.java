@@ -33,13 +33,15 @@ public class MainActivity extends AppCompatActivity {
 
         // SetDate = "No date";
         if (savedInstanceState != null) {
-            SetDate = savedInstanceState.getString("setDate");
+           // SetDate = savedInstanceState.getString("setDate");
             count = savedInstanceState.getInt("count");
 //        Log.d("sett",SetDate);
         } else {
-            SetDate = "No date";
+
             count = 0;
         }
+
+        findDate();
 
     }
 
@@ -166,7 +168,7 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         Log.d("onResume","onResume");
         String nuSrt;
-        try{
+      /*  try{
             nuSrt = getIntent().getExtras().getString("user");
         }catch (NullPointerException e){
             try{
@@ -175,10 +177,10 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this,"Why Null",Toast.LENGTH_SHORT).show();
                 nuSrt = "No date";
             }
-        }
+        }*/
 
-        makeList2(nuSrt);
-        SetDate = nuSrt;
+        makeList2(SetDate);
+       // SetDate = nuSrt;
         CategoriesListAdapter adapter = new CategoriesListAdapter(this, R.layout.adapter_view_layout,categories2);
         myListView.setAdapter(adapter);
         totalForMain.setText(""+count+" L");
@@ -261,7 +263,7 @@ public class MainActivity extends AppCompatActivity {
         Cursor cursor = baseHelper.makeQuiry("select Date FROM Categories");
         ArrayList<EditModel> www = new ArrayList<>();
         if (cursor.getCount() == 0) {
-
+            SetDate = "No date";
         } else {
             while (cursor.moveToNext()) {
                 SetDate = cursor.getString(0);
